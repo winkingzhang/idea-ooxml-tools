@@ -1,0 +1,55 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.zhangwenqing.ideaooxml.tools</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>OOXml Tools</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="me@zhangwenqing.org" url="https://blogs.zhangwenqing.org">Wenqing ZHANG</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <h1>PLEASE DO NET CHANGE DESCRIPTION HERE, IT WILL BE REPLACED WHEN BUILDING</h1>
+  ]]></description>
+
+    <change-notes><![CDATA[
+      <h3>PLEASE DO NET CHANGE DESCRIPTION HERE, IT WILL BE REPLACED WHEN BUILDING</h3>
+  ]]></change-notes>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <resource-bundle>messages.StringBundle</resource-bundle>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <treeStructureProvider implementation="org.zhangwenqing.ideaooxml.extensions.OoxmlTreeProvider"/>
+        <!--        <applicationService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlApplicationService"/>-->
+        <projectService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlProjectService"/>
+        <virtualFileSystem key="zip"
+                           implementationClass="org.zhangwenqing.ideaooxml.filesystem.impl.ZipFileSystemImpl"/>
+    </extensions>
+
+    <applicationListeners>
+        <!--        <listener class="org.zhangwenqing.ideaooxml.listeners.OoxmlProjectManagerListener"-->
+        <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+    </applicationListeners>
+
+    <actions>
+        <action id="org.zhangwenqing.ideaooxml.actions.OoxmlOpenAction"
+                class="org.zhangwenqing.ideaooxml.actions.OoxmlOpenAction"
+                text="Open As OOXml Document"
+                description="Open and view OOXml package raw contents"
+                icon="/icons/icon_16.svg">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
