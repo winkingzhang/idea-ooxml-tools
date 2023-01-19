@@ -1,0 +1,49 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.zhangwenqing.ooxml.idea-ooxml-tools</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>OOXml Tools</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="me@zhangwenqing.org" url="https://blogs.zhangwenqing.org">Wenqing ZHANG</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <h1>PLEASE DO NET CHANGE DESCRIPTION HERE, IT WILL BE REPLACED WHEN BUILDING</h1>
+  ]]></description>
+
+    <change-notes><![CDATA[
+      <h3>PLEASE DO NET CHANGE DESCRIPTION HERE, IT WILL BE REPLACED WHEN BUILDING</h3>
+  ]]></change-notes>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+<!--        <applicationService serviceImplementation="org.zhangwenqing.ooxml.ideaooxmltools.services.OOXmlApplicationService"/>-->
+<!--        <projectService serviceImplementation="org.zhangwenqing.ooxml.ideaooxmltools.services.OOXmlProjectService"/>-->
+    </extensions>
+
+    <applicationListeners>
+<!--        <listener class="org.zhangwenqing.ideaooxmltools.listeners.OOXmlProjectManagerListener"-->
+<!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+    </applicationListeners>
+
+    <actions>
+        <action id="org.zhangwenqing.ooxml.ideaooxmltools.OOXmlOpenAction"
+                class="org.zhangwenqing.ooxml.ideaooxmltools.OOXmlOpenAction"
+                text="Open As OOXml Document"
+                description="Open and view OOXml package raw contents"
+                icon="/icons/icon_16.svg">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
