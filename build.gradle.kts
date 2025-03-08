@@ -31,7 +31,7 @@ repositories {
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
-    implementation("org.apache.poi:poi-ooxml:5.2.3")
+    implementation("org.apache.poi:poi-ooxml:5.4.0")
     implementation("com.google.guava:guava:31.1-jre")
 
     testImplementation(libs.junit)
