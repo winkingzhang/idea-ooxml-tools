@@ -1,8 +1,8 @@
 # idea-ooxml-tools
 
 ![Build](https://github.com/winkingzhang/idea-ooxml-tools/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/00000.svg)](https://plugins.jetbrains.com/plugin/00000)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/00000.svg)](https://plugins.jetbrains.com/plugin/00000)
+[![Version](https://img.shields.io/jetbrains/plugin/v/26779.svg)](https://plugins.jetbrains.com/plugin/26779)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/26779.svg)](https://plugins.jetbrains.com/plugin/26779)
 
 
 <!-- Plugin description -->
@@ -12,7 +12,7 @@ to view, analyse and compare contents of `OOXML` documents.
 See more on [GitHub Repo (https://github.com/winkingzhang/idea-ooxml-tools)](https://github.com/winkingzhang/idea-ooxml-tools)
 
 ## Features
-- Expand OOXml document as archive in project view
+- Expand OOXml document as archive in project view by ECMA-376
 - View OOXml raw package files (XML, image, etc.)
 
 <!-- Plugin description end -->
