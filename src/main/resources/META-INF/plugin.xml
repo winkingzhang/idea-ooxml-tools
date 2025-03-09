@@ -31,8 +31,27 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <treeStructureProvider implementation="org.zhangwenqing.ideaooxml.extensions.OoxmlTreeProvider"/>
         <!--        <applicationService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlApplicationService"/>-->
         <projectService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlProjectService"/>
+        <fileType name="DOCX"
+                  extensions="docx"
+                  fieldName="INSTANCE"
+                  implementationClass="org.zhangwenqing.ideaooxml.fileTypes.DocxFileType"/>
+        <fileType name="PPTX"
+                  extensions="pptx"
+                  fieldName="INSTANCE"
+                  implementationClass="org.zhangwenqing.ideaooxml.fileTypes.PptxFileType"/>
+        <fileType name="XLSX"
+                  extensions="xlsx"
+                  fieldName="INSTANCE"
+                  implementationClass="org.zhangwenqing.ideaooxml.fileTypes.XlsxFileType"/>
+        <virtualFileSystem key="docx"
+                           implementationClass="org.zhangwenqing.ideaooxml.vfs.impl.DocxFileSystemImpl"/>
+        <virtualFileSystem key="pptx"
+                           implementationClass="org.zhangwenqing.ideaooxml.vfs.impl.PptxFileSystemImpl"/>
+        <virtualFileSystem key="xlsx"
+                           implementationClass="org.zhangwenqing.ideaooxml.vfs.impl.XlsxFileSystemImpl"/>
     </extensions>
 
     <applicationListeners>
