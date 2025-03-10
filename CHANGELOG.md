@@ -5,7 +5,8 @@
 ## [Unreleased]
 
 ### Added
-+ Basic feature to open OOXml package raw structure (zip)
+
+- Basic feature to open OOXml package raw structure (zip)
   + expandable tree view
   + open files in code editor
-+ Compatible with version 2023.3
+- Compatible with version 2024.3+ (JDK21)
