@@ -69,5 +69,12 @@ class OoxmlOpenAction : AnAction() {
             e.presentation.description,
             Messages.getInformationIcon()
         )
+
     }
+
+    override fun update(e: AnActionEvent) {
+        e.presentation.isEnabledAndVisible = checkAvailable(e)
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 }
