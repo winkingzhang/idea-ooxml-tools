@@ -23,17 +23,15 @@ import com.intellij.openapi.fileTypes.FileTypeRegistry
 import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.text.StringUtil
-import com.intellij.openapi.vfs.IntegrityCheckCapableFileSystem
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFilePointerCapableFileSystem
-import com.intellij.openapi.vfs.impl.ZipHandler
 import com.intellij.openapi.vfs.impl.ZipHandlerBase
-import com.intellij.openapi.vfs.impl.jar.TimedZipHandler
 import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem
 import com.intellij.openapi.vfs.newvfs.VfsImplUtil
 import com.intellij.util.Function
 import org.apache.commons.lang3.StringUtils
-import org.zhangwenqing.ideaooxml.fileTypes.DocxFileType
+import org.zhangwenqing.ideaooxml.vfs.zip.OoxmlTimedZipHandler
+import org.zhangwenqing.ideaooxml.vfs.zip.OoxmlZipHandler
 
 
 abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableFileSystem {
@@ -97,9 +95,9 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
             this,
             entryFile,
             if (SystemInfo.isWindows) Function<String, ZipHandlerBase> { path: String ->
-                TimedZipHandler(path)
+                OoxmlTimedZipHandler(path)
             } else Function<String, ZipHandlerBase> { path: String ->
-                ZipHandler(path)
+                OoxmlZipHandler(path)
             })
 
     override fun findFileByPath(path: String): VirtualFile? =
