@@ -21,6 +21,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
+import org.zhangwenqing.ideaooxml.services.OoxmlProjectService
 
 class OoxmlOpenAction : AnAction() {
 
@@ -36,6 +37,12 @@ class OoxmlOpenAction : AnAction() {
         }
     }
 
+    override fun update(e: AnActionEvent) {
+        e.presentation.isEnabledAndVisible = checkAvailable(e)
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
+
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project
         val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
@@ -44,25 +51,23 @@ class OoxmlOpenAction : AnAction() {
             return
         }
 
+        var ooxmlService = project.getService(OoxmlProjectService::class.java)
+
+        showMessageDialog(e)
+
+    }
+
+    @Suppress("DialogTitleCapitalization")
+    fun showMessageDialog(e: AnActionEvent) {
         val message: StringBuilder = StringBuilder(e.presentation.text + " Selected!")
         // If an element is selected in the editor, add info about it.
         val selectedElement = e.getData(CommonDataKeys.NAVIGATABLE)
-        if (selectedElement != null) {
-            message.append("\nSelected Element: ").append(selectedElement)
-        }
-        val title = e.presentation.description
+        selectedElement?.let { message.append("\nSelected Element: ").append(it) }
         Messages.showMessageDialog(
-            project,
+            e.project,
             message.toString(),
-            title,
+            e.presentation.description,
             Messages.getInformationIcon()
         )
-
     }
-
-    override fun update(e: AnActionEvent) {
-        e.presentation.isEnabledAndVisible = checkAvailable(e)
-    }
-
-    override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 }
