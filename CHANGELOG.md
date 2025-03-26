@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Show .xml/.rels files with well-read code style
+
 ## [1.2025.1+251.1] - 2025-03-10
 
 ### Added
