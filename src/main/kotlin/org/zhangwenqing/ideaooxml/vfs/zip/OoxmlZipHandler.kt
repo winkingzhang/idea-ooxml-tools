@@ -19,32 +19,40 @@ package org.zhangwenqing.ideaooxml.vfs.zip
 import com.intellij.openapi.vfs.impl.ZipHandler
 import java.io.StringWriter
 import java.util.*
+import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
+import javax.xml.transform.Transformer
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 
-val reformattedFileTypes = arrayOf("xml", "rels")
-
 open class OoxmlZipHandler(path: String) : ZipHandler(path) {
+
+    companion object {
+        val wellKnownXmlFileTypes = arrayOf("xml", "rels")
+        val documentBuilder: DocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+        val transformer: Transformer = TransformerFactory.newInstance().newTransformer()
+
+        init {
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes")
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml")
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8")
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4")
+        }
+    }
+
     override fun contentsToByteArray(relativePath: String): ByteArray {
         val rawBytes = super.contentsToByteArray(relativePath)
 
         val extension = relativePath.substringAfterLast('.', "")
             .lowercase(Locale.getDefault())
-        if (!reformattedFileTypes.contains(extension)) {
+        if (!wellKnownXmlFileTypes.contains(extension)) {
             return rawBytes
         }
 
         val rawXML = String(rawBytes)
-        val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
         val document = documentBuilder.parse(rawXML.byteInputStream())
-        val transformer = TransformerFactory.newInstance().newTransformer()
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes")
-        transformer.setOutputProperty(OutputKeys.METHOD, "xml")
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8")
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4")
         val result = StringWriter()
         transformer.transform(DOMSource(document), StreamResult(result))
         return result.toString().encodeToByteArray()
