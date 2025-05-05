@@ -17,6 +17,7 @@
 package org.zhangwenqing.ideaooxml.vfs.zip
 
 import com.intellij.openapi.diagnostic.logger
+import com.intellij.openapi.vfs.impl.GenericZipFile
 import com.intellij.util.concurrency.AppExecutorUtil
 import com.intellij.util.io.ResourceHandle
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap
@@ -26,7 +27,6 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.ReentrantLock
-import java.util.zip.ZipFile
 
 class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
 
@@ -37,21 +37,28 @@ class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
         val ourLRUCache: Object2ObjectLinkedOpenHashMap<OoxmlTimedZipHandler, ScheduledFuture<*>> =
             Object2ObjectLinkedOpenHashMap(LRU_CACHE_SIZE + 1)
         val ourScheduledExecutorService: ScheduledExecutorService =
-            AppExecutorUtil.createBoundedScheduledExecutorService("Zip Handle Janitor", 1)
+            AppExecutorUtil.createBoundedScheduledExecutorService("Ooxml Handle Janitor", 1)
     }
 
     private val myHandle = ZipResourceHandle()
 
+    override fun clearCaches() {
+        super.clearCaches()
+        myHandle.invalidateZipReference(null)
+    }
+
     override fun getEntryFileStamp(): Long = myHandle.getFileStamp()
 
-    override fun acquireZipHandle(): ResourceHandle<ZipFile> {
+    @Suppress("UnstableApiUsage")
+    override fun acquireZipHandle(): ResourceHandle<GenericZipFile?> {
         myHandle.attach()
         return myHandle
     }
 
-    private inner class ZipResourceHandle : ResourceHandle<ZipFile>() {
+    @Suppress("UnstableApiUsage")
+    private inner class ZipResourceHandle : ResourceHandle<GenericZipFile?>() {
 
-        private var myFile: ZipFile? = null
+        private var myFile: GenericZipFile? = null
         private var myFileStamp: Long = 0
         private val myLock = ReentrantLock()
         private var myInvalidationRequest: ScheduledFuture<*>? = null
@@ -68,8 +75,8 @@ class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
                     myInvalidationRequest = null
                 }
                 if (myFile == null) {
-                    myFileStamp = Files.getLastModifiedTime(file.toPath()).toMillis()
-                    myFile = ZipFile(file)
+                    myFileStamp = Files.getLastModifiedTime(path).toMillis()
+                    myFile = getZipFileWrapper(path)
                 }
             } catch (t: Throwable) {
                 myLock.unlock()
@@ -107,7 +114,7 @@ class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
             leastUsedHandler?.myHandle?.invalidateZipReference(invalidationRequest)
         }
 
-        override fun get(): ZipFile {
+        override fun get(): GenericZipFile {
             assert(myLock.isLocked)
             return myFile!!
         }
@@ -118,7 +125,7 @@ class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
         }
 
         // `expectedInvalidationRequest` is not null when dropping out of `ourLRUCache`
-        private fun invalidateZipReference(expectedInvalidationRequest: ScheduledFuture<*>?) {
+        fun invalidateZipReference(expectedInvalidationRequest: ScheduledFuture<*>?) {
             myLock.lock()
             try {
                 if (myFile == null
