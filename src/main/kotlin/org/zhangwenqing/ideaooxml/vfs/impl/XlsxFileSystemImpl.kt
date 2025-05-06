@@ -17,10 +17,7 @@
 package org.zhangwenqing.ideaooxml.vfs.impl
 
 import com.intellij.openapi.fileTypes.FileType
-import com.intellij.openapi.util.io.FileAttributes
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
-import org.zhangwenqing.ideaooxml.fileTypes.DocxFileType
 import org.zhangwenqing.ideaooxml.fileTypes.XlsxFileType
 import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
 
