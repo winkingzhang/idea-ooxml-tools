@@ -46,7 +46,7 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
         children: Collection<AbstractTreeNode<*>>,
         settings: ViewSettings
     ): Collection<AbstractTreeNode<*>> {
-        return children.map { it ->
+        return children.map {
             if (it is PsiFileNode && it.virtualFile?.isValid == true) {
                 val project = parent.project
                 var treeNodeFile = it.virtualFile ?: return@map it
