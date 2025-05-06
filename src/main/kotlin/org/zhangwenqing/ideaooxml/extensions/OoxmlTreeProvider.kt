@@ -93,9 +93,12 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
         }
 
         val containingFile = containingFileRef.get()
-        if (!(containingFile.fileType == DocxFileType || containingFile.fileType == PptxFileType || containingFile.fileType == XlsxFileType)) {
-            return null
+        return when {
+            containingFile == null -> null
+            containingFile.fileType == DocxFileType -> containingFile
+            containingFile.fileType == PptxFileType -> containingFile
+            containingFile.fileType == XlsxFileType -> containingFile
+            else -> null
         }
-        return containingFile
     }
 }
