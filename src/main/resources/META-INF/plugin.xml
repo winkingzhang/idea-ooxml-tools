@@ -33,7 +33,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <treeStructureProvider implementation="org.zhangwenqing.ideaooxml.extensions.OoxmlTreeProvider"/>
         <!--        <applicationService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlApplicationService"/>-->
-        <projectService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlProjectService"/>
         <fileType name="DOCX"
                   extensions="docx"
                   fieldName="INSTANCE"
