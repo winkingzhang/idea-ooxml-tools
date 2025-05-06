@@ -17,9 +17,11 @@
 package org.zhangwenqing.ideaooxml.vfs.zip
 
 import com.intellij.openapi.diagnostic.logger
+import com.intellij.openapi.vfs.impl.ZipHandlerBase
 import com.intellij.util.concurrency.AppExecutorUtil
 import com.intellij.util.io.ResourceHandle
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap
+import org.zhangwenqing.ideaooxml.utils.XmlUtil
 import java.io.IOException
 import java.nio.file.Files
 import java.util.concurrent.ScheduledExecutorService
@@ -28,7 +30,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.ReentrantLock
 import java.util.zip.ZipFile
 
-class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
+class OoxmlTimedZipHandler(path: String) : ZipHandlerBase(path) {
 
     companion object {
         const val RETENTION_MS: Long = 2000L
@@ -38,6 +40,14 @@ class OoxmlTimedZipHandler(path: String) : OoxmlZipHandler(path) {
             Object2ObjectLinkedOpenHashMap(LRU_CACHE_SIZE + 1)
         val ourScheduledExecutorService: ScheduledExecutorService =
             AppExecutorUtil.createBoundedScheduledExecutorService("Zip Handle Janitor", 1)
+    }
+
+    override fun contentsToByteArray(relativePath: String): ByteArray {
+        val rawBytes = super.contentsToByteArray(relativePath)
+
+        return if (!XmlUtil.doNeedFormatXml(relativePath)) {
+            rawBytes
+        } else XmlUtil.formatXml(rawBytes)
     }
 
     private val myHandle = ZipResourceHandle()
