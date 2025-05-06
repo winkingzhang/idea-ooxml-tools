@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [1.2025.1+251.3] - 2025-05-06
+
 ### Added
 
 - Extend .rels files via XML language services
@@ -12,7 +14,6 @@
 
 - Improve Ooxml file handler for windows
 - Compatible with version 2023.1+ (JDK17)
-
 
 ## [1.2025.1+251.2] - 2025-03-26
 
@@ -29,6 +30,7 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.2...HEAD
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.3...HEAD
+[1.2025.1+251.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.2...v1.2025.1+251.3
 [1.2025.1+251.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.1...v1.2025.1+251.2
 [1.2025.1+251.1]: https://github.com/winkingzhang/idea-ooxml-tools/commits/v1.2025.1+251.1
