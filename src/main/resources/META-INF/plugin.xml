@@ -46,6 +46,11 @@
                   extensions="xlsx"
                   fieldName="INSTANCE"
                   implementationClass="org.zhangwenqing.ideaooxml.fileTypes.XlsxFileType"/>
+        <fileType name="Relationships"
+                  extensions="rels"
+                  language="XML"
+                  fieldName="INSTANCE"
+                  implementationClass="org.zhangwenqing.ideaooxml.fileTypes.RelationshipsFileType"/>
         <virtualFileSystem key="docx"
                            implementationClass="org.zhangwenqing.ideaooxml.vfs.impl.DocxFileSystemImpl"/>
         <virtualFileSystem key="pptx"
