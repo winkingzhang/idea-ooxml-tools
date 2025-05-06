@@ -24,7 +24,10 @@ import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
 class PptxFileSystemImpl : OoxmlFileSystem() {
     companion object {
         const val PROTOCOL = "pptx"
+    }
 
+    object Util {
+        @JvmStatic
         fun getInstance(): PptxFileSystemImpl {
             return VirtualFileManager.getInstance().getFileSystem(PROTOCOL) as PptxFileSystemImpl
         }

@@ -24,7 +24,10 @@ import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
 class XlsxFileSystemImpl : OoxmlFileSystem() {
     companion object {
         const val PROTOCOL = "xlsx"
+    }
 
+    object Util {
+        @JvmStatic
         fun getInstance(): XlsxFileSystemImpl {
             return VirtualFileManager.getInstance().getFileSystem(PROTOCOL) as XlsxFileSystemImpl
         }

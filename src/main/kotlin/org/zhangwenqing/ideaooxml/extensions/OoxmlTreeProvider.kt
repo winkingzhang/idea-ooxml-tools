@@ -70,9 +70,9 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
                 }
 
                 val archiveFile: VirtualFile? = when (treeNodeFile.fileType) {
-                    DocxFileType -> DocxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
-                    PptxFileType -> PptxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
-                    XlsxFileType -> XlsxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
+                    DocxFileType -> DocxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
+                    PptxFileType -> PptxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
+                    XlsxFileType -> XlsxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
                     else -> null
                 }
 
