@@ -17,17 +17,17 @@
 package org.zhangwenqing.ideaooxml.vfs.impl
 
 import com.intellij.openapi.fileTypes.FileType
-import com.intellij.openapi.fileTypes.FileTypeRegistry
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
-import org.zhangwenqing.ideaooxml.fileTypes.DocxFileType
 import org.zhangwenqing.ideaooxml.fileTypes.PptxFileType
 import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
 
 class PptxFileSystemImpl : OoxmlFileSystem() {
     companion object {
         const val PROTOCOL = "pptx"
+    }
 
+    object Util {
+        @JvmStatic
         fun getInstance(): PptxFileSystemImpl {
             return VirtualFileManager.getInstance().getFileSystem(PROTOCOL) as PptxFileSystemImpl
         }

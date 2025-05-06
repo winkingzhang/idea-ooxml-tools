@@ -29,6 +29,7 @@ object RelationshipsFileType : XmlLikeFileType(XMLLanguage.INSTANCE) {
 
     override fun getDescription(): @NlsContexts.Label String = "XML"
 
+    @Suppress("UnstableApiUsage")
     override fun getDefaultExtension(): @NlsSafe String = "rels"
 
     override fun getIcon(): Icon {

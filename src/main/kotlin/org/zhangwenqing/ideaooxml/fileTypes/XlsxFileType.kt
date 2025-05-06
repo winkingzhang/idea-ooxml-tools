@@ -28,9 +28,10 @@ object XlsxFileType : FileType {
 
     override fun getDescription(): @NlsContexts.Label String = "Microsoft Excel Spreadsheet"
 
+    @Suppress("UnstableApiUsage")
     override fun getDefaultExtension(): @NlsSafe String = "xlsx"
 
-    override fun getIcon(): Icon? = IconList.Xlsx
+    override fun getIcon(): Icon = IconList.Xlsx
 
     override fun isBinary(): Boolean = true
 
