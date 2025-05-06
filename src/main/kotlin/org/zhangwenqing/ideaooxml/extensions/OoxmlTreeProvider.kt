@@ -88,9 +88,10 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
     override fun getTopLevelElement(element: PsiElement?): PsiElement? {
         element?.let { PsiUtilCore.ensureValid(it) }
         val containingFileRef = Ref.create<PsiFile?>()
-        ApplicationManager.getApplication().runReadAction(Runnable {
+        ApplicationManager.getApplication().runReadAction {
             containingFileRef.set(element?.containingFile)
-        })
+        }
+
         val containingFile = containingFileRef.get()
         if (!(containingFile.fileType == DocxFileType || containingFile.fileType == PptxFileType || containingFile.fileType == XlsxFileType)) {
             return null
