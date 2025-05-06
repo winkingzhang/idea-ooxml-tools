@@ -4,15 +4,21 @@
 
 ## [Unreleased]
 
+### Added
+
+- Extend .rels files via XML language services
+
+### Changed
+
+- Improve Ooxml file handler for windows
+- Compatible with version 2023.1+ (JDK17)
+
+
 ## [1.2025.1+251.2] - 2025-03-26
 
 ### Added
 
 - Show .xml/.rels files with well-read code style
-- Basic feature to open OOXml package raw structure (zip)
-  + expandable tree view
-  + open files in code editor
-- Compatible with version 2024.3+ (JDK21)
 
 ## [1.2025.1+251.1] - 2025-03-10
 
