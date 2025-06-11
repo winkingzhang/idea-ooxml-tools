@@ -10,17 +10,6 @@
 
 - Remove the usage of deprecated API
 - Remove unused reference to poi and guava
-- Improve Ooxml file handler for windows
-- Compatible with version 2023.1+ (JDK17)
-
-### Added
-
-- Extend .rels files via XML language services
-- Show .xml/.rels files with well-read code style
-- Basic feature to open OOXml package raw structure (zip)
-  + expandable tree view
-  + open files in code editor
-- Compatible with version 2024.3+ (JDK21)
 
 ## [1.2025.1+251.3] - 2025-05-06
 
