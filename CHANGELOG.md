@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Remove the usage of deprecated API
+- remove unused reference to poi and guava
+
+
 ## [1.2025.1+251.3] - 2025-05-06
 
 ### Added
