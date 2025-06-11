@@ -2,7 +2,7 @@
 # libraries
 junit = "4.13.2"
 poi-ooxml = "5.4.0"
-guava = "33.4.0-jre"
+guava = "33.4.8-jre"
 
 # plugins
 changelog = "2.2.1"
