@@ -41,7 +41,7 @@ class ZipBasedPsiNode(
             if (!file.isValid) continue
 
             if (file.isDirectory) {
-                psiManager.findDirectory(file)?.let { it ->
+                psiManager.findDirectory(file)?.let {
                     children.add(ZipBasedPsiNode(project, it, settings, file))
                 }
             } else {

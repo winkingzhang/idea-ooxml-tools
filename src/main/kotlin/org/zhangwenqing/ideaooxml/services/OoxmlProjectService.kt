@@ -16,10 +16,12 @@
 
 package org.zhangwenqing.ideaooxml.services
 
+import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import org.zhangwenqing.ideaooxml.utils.StringBundle
 
+@Service(Service.Level.PROJECT)
 class OoxmlProjectService(project: Project) {
 
     init {

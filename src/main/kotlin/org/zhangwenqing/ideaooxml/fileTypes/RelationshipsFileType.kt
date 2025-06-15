@@ -16,24 +16,23 @@
 
 package org.zhangwenqing.ideaooxml.fileTypes
 
-import com.intellij.openapi.fileTypes.FileType
+import com.intellij.icons.AllIcons
+import com.intellij.ide.highlighter.XmlLikeFileType
+import com.intellij.lang.xml.XMLLanguage
 import com.intellij.openapi.util.NlsContexts
 import com.intellij.openapi.util.NlsSafe
 import org.jetbrains.annotations.NonNls
-import org.zhangwenqing.ideaooxml.utils.IconList
 import javax.swing.Icon
 
-object PptxFileType : FileType {
-    override fun getName(): @NonNls String  = "PPTX"
+object RelationshipsFileType : XmlLikeFileType(XMLLanguage.INSTANCE) {
+    override fun getName(): @NonNls String = "Relationships"
 
-    override fun getDescription(): @NlsContexts.Label String = "Microsoft PowerPoint Presentation"
+    override fun getDescription(): @NlsContexts.Label String = "XML"
 
     @Suppress("UnstableApiUsage")
-    override fun getDefaultExtension(): @NlsSafe String = "pptx"
+    override fun getDefaultExtension(): @NlsSafe String = "rels"
 
-    override fun getIcon(): Icon = IconList.Pptx
-
-    override fun isBinary(): Boolean = true
-
-//    override fun isReadOnly(): Boolean = true
+    override fun getIcon(): Icon {
+        return AllIcons.FileTypes.Xml
+    }
 }

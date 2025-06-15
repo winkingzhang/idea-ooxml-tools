@@ -33,7 +33,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <treeStructureProvider implementation="org.zhangwenqing.ideaooxml.extensions.OoxmlTreeProvider"/>
         <!--        <applicationService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlApplicationService"/>-->
-        <projectService serviceImplementation="org.zhangwenqing.ideaooxml.services.OoxmlProjectService"/>
         <fileType name="DOCX"
                   extensions="docx"
                   fieldName="INSTANCE"
@@ -46,6 +45,11 @@
                   extensions="xlsx"
                   fieldName="INSTANCE"
                   implementationClass="org.zhangwenqing.ideaooxml.fileTypes.XlsxFileType"/>
+        <fileType name="Relationships"
+                  extensions="rels"
+                  language="XML"
+                  fieldName="INSTANCE"
+                  implementationClass="org.zhangwenqing.ideaooxml.fileTypes.RelationshipsFileType"/>
         <virtualFileSystem key="docx"
                            implementationClass="org.zhangwenqing.ideaooxml.vfs.impl.DocxFileSystemImpl"/>
         <virtualFileSystem key="pptx"

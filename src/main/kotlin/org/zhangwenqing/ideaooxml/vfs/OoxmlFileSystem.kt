@@ -20,7 +20,6 @@ import com.intellij.ide.highlighter.ArchiveFileType
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.openapi.fileTypes.FileTypeRegistry
-import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.VirtualFile
@@ -28,9 +27,7 @@ import com.intellij.openapi.vfs.VirtualFilePointerCapableFileSystem
 import com.intellij.openapi.vfs.impl.ZipHandlerBase
 import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem
 import com.intellij.openapi.vfs.newvfs.VfsImplUtil
-import com.intellij.util.Function
 import org.apache.commons.lang3.StringUtils
-import org.zhangwenqing.ideaooxml.vfs.zip.OoxmlTimedZipHandler
 import org.zhangwenqing.ideaooxml.vfs.zip.OoxmlZipHandler
 
 
@@ -91,14 +88,7 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
 
     override fun getHandler(entryFile: VirtualFile): ZipHandlerBase =
         // use default zip handler would be enough
-        VfsImplUtil.getHandler(
-            this,
-            entryFile,
-            if (SystemInfo.isWindows) Function<String, ZipHandlerBase> { path: String ->
-                OoxmlTimedZipHandler(path)
-            } else Function<String, ZipHandlerBase> { path: String ->
-                OoxmlZipHandler(path)
-            })
+        VfsImplUtil.getHandler(this, entryFile) { path -> OoxmlZipHandler(path) }
 
     override fun findFileByPath(path: String): VirtualFile? =
         if (isPathValid(path)) VfsImplUtil.findFileByPath(this, path) else null

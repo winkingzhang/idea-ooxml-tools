@@ -17,8 +17,6 @@
 package org.zhangwenqing.ideaooxml.vfs.impl
 
 import com.intellij.openapi.fileTypes.FileType
-import com.intellij.openapi.fileTypes.FileTypeRegistry
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import org.zhangwenqing.ideaooxml.fileTypes.DocxFileType
 import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
@@ -26,7 +24,10 @@ import org.zhangwenqing.ideaooxml.vfs.OoxmlFileSystem
 class DocxFileSystemImpl : OoxmlFileSystem() {
     companion object {
         const val PROTOCOL = "docx"
+    }
 
+    object Util {
+        @JvmStatic
         fun getInstance(): DocxFileSystemImpl {
             return VirtualFileManager.getInstance().getFileSystem(PROTOCOL) as DocxFileSystemImpl
         }

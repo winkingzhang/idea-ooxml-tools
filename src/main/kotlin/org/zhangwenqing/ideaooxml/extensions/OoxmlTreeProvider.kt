@@ -46,7 +46,7 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
         children: Collection<AbstractTreeNode<*>>,
         settings: ViewSettings
     ): Collection<AbstractTreeNode<*>> {
-        return children.map { it ->
+        return children.map {
             if (it is PsiFileNode && it.virtualFile?.isValid == true) {
                 val project = parent.project
                 var treeNodeFile = it.virtualFile ?: return@map it
@@ -70,9 +70,9 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
                 }
 
                 val archiveFile: VirtualFile? = when (treeNodeFile.fileType) {
-                    DocxFileType -> DocxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
-                    PptxFileType -> PptxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
-                    XlsxFileType -> XlsxFileSystemImpl.getInstance().getRootByLocal(treeNodeFile)
+                    DocxFileType -> DocxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
+                    PptxFileType -> PptxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
+                    XlsxFileType -> XlsxFileSystemImpl.Util.getInstance().getRootByLocal(treeNodeFile)
                     else -> null
                 }
 
@@ -88,13 +88,17 @@ class OoxmlTreeProvider : TreeStructureProvider, SelectableTreeStructureProvider
     override fun getTopLevelElement(element: PsiElement?): PsiElement? {
         element?.let { PsiUtilCore.ensureValid(it) }
         val containingFileRef = Ref.create<PsiFile?>()
-        ApplicationManager.getApplication().runReadAction(Runnable {
+        ApplicationManager.getApplication().runReadAction {
             containingFileRef.set(element?.containingFile)
-        })
-        val containingFile = containingFileRef.get()
-        if (!(containingFile.fileType == DocxFileType || containingFile.fileType == PptxFileType || containingFile.fileType == XlsxFileType)) {
-            return null
         }
-        return containingFile
+
+        val containingFile = containingFileRef.get()
+        return when {
+            containingFile == null -> null
+            containingFile.fileType == DocxFileType -> containingFile
+            containingFile.fileType == PptxFileType -> containingFile
+            containingFile.fileType == XlsxFileType -> containingFile
+            else -> null
+        }
     }
 }
