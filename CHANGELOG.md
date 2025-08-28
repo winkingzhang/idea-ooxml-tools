@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- Compatible to latest version 2025.2
+
 ## [1.2025.1+251.4] - 2025-06-11
 
 ### Changed
