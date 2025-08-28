@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [1.2025.1+252.1] - 2025-08-28
+
 ### Changed
 
 - Update dependencies
@@ -42,7 +44,8 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.4...HEAD
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.1...HEAD
+[1.2025.1+252.1]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.4...v1.2025.1+252.1
 [1.2025.1+251.4]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.3...v1.2025.1+251.4
 [1.2025.1+251.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.2...v1.2025.1+251.3
 [1.2025.1+251.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.1...v1.2025.1+251.2
