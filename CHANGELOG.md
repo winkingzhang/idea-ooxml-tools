@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Changed
+- Update dependencies
+- fix: improve path normalization and extraction methods
+
 ## [1.2025.1+252.1] - 2025-08-28
 
 ### Changed
