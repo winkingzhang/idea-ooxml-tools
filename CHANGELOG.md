@@ -4,7 +4,10 @@
 
 ## [Unreleased]
 
+## [1.2025.1+252.2] - 2025-10-03
+
 ### Changed
+
 - Update dependencies
 - fix: improve path normalization and extraction methods
 
@@ -48,7 +51,8 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.1...HEAD
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.2...HEAD
+[1.2025.1+252.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.1...v1.2025.1+252.2
 [1.2025.1+252.1]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.4...v1.2025.1+252.1
 [1.2025.1+251.4]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.3...v1.2025.1+251.4
 [1.2025.1+251.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.2...v1.2025.1+251.3
