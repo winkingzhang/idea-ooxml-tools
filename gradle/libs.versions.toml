@@ -1,8 +1,9 @@
 [versions]
 # libraries
 junit = "4.13.2"
-poi-ooxml = "5.4.0"
-guava = "33.5.0-jre"
+poi = "5.4.1"
+poi-ooxml = "5.4.1"
+poi-scratchpad = "5.4.1"
 
 # plugins
 changelog = "2.4.0"
@@ -13,8 +14,9 @@ qodana = "2025.2.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+poi = { group = "org.apache.poi", name = "poi", version.ref = "poi" }
 poi-ooxml = { group = "org.apache.poi", name = "poi-ooxml", version.ref = "poi-ooxml" }
-guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
+poi-scratchpad = { group = "org.apache.poi", name = "poi-scratchpad", version.ref = "poi-scratchpad" }
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
