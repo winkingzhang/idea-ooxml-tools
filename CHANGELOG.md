@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- Compatible to latest version 2025.3
+- Change minimum supported IDE version to 2024.2 (JDK21)
+- fix: refactoring to avoid deprecated method usage
+
 ## [1.2025.1+252.2] - 2025-10-03
 
 ### Changed
