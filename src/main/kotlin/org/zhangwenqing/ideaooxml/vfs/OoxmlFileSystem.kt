@@ -30,7 +30,6 @@ import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem
 import com.intellij.openapi.vfs.newvfs.ManagingFS
 import com.intellij.openapi.vfs.newvfs.NewVirtualFile
 import com.intellij.openapi.vfs.newvfs.VfsImplUtil
-import com.intellij.openapi.vfs.newvfs.VfsImplUtil.PathFromRoot
 import org.apache.commons.lang3.StringUtils
 import org.zhangwenqing.ideaooxml.vfs.zip.OoxmlZipHandler
 
@@ -112,14 +111,12 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
         VfsImplUtil.refresh(this, asynchronous)
     }
 
-    private fun findCachedFileByPath(path: String): NewVirtualFile? {
-        return findFileByTraversing(
-            path, NewVirtualFile::findChildIfCached, {
-                val canonicalPath = it?.canonicalPath
-                val canonicalFile = if (canonicalPath != null) findCachedFileByPath(canonicalPath) else null
-                canonicalFile?.parent
-            })
-    }
+    private fun findCachedFileByPath(path: String): NewVirtualFile? = findFileByTraversing(
+        path, NewVirtualFile::findChildIfCached, {
+            val canonicalPath = it?.canonicalPath
+            val canonicalFile = if (canonicalPath != null) findCachedFileByPath(canonicalPath) else null
+            canonicalFile?.parent
+        })
 
     private fun findFileByTraversing(
         path: String,
@@ -127,9 +124,9 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
         traveParentSymlink: (NewVirtualFile?) -> NewVirtualFile? = { it?.canonicalFile?.parent },
         traveParent: (NewVirtualFile?) -> NewVirtualFile? = { it?.parent }
     ): NewVirtualFile? {
-        val pair = extractRootFromPath(path) ?: return null
-        val parts = StringUtil.tokenize(pair.pathFromRoot, FILE_SEPARATORS)
-        var file: NewVirtualFile? = pair.root
+        val (root, pathFromRoot) = extractRootFromPath(path) ?: return null
+        val parts = StringUtil.tokenize(pathFromRoot, FILE_SEPARATORS)
+        var file: NewVirtualFile? = root
 
         for (pathElement in parts) {
             if (pathElement?.isEmpty()!! || "." == pathElement) continue
@@ -152,7 +149,7 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
         return file
     }
 
-    private fun extractRootFromPath(path: String): PathFromRoot? {
+    private fun extractRootFromPath(path: String): Pair<NewVirtualFile?, String>? {
         val normalizedPath = normalizeImp(path)
         if (normalizedPath.isBlank()) {
             return null
@@ -173,6 +170,6 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
             ++restPathStart
         }
 
-        return PathFromRoot(root, normalizedPath.substring(restPathStart))
+        return Pair<NewVirtualFile?, String>(root, normalizedPath.substring(restPathStart))
     }
 }
