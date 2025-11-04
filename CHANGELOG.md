@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- fix: unresolved class for version 2025.3
+
 ## [1.2025.1+253.1] - 2025-10-29
 
 ### Changed
