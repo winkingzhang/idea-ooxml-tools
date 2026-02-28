@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- Upgrade gradle to 9.3.1
+
 ## [1.2025.1+253.2] - 2025-11-04
 
 ### Changed
