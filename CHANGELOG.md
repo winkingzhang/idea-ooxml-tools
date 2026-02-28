@@ -10,25 +10,6 @@
 
 - Update dependencies
 - Upgrade gradle to 9.3.1
-- Compatible to latest version 2025.3
-- Change minimum supported IDE version to 2024.2 (JDK21)
-- fix: unresolved class for version 2025.3
-- fix: refactoring to avoid deprecated method usage
-- fix: improve path normalization and extraction methods
-- Compatible to latest version 2025.2
-- Remove the usage of deprecated API
-- Remove unused reference to poi and guava
-- Improve Ooxml file handler for windows
-- Compatible with version 2023.1+ (JDK17)
-
-### Added
-
-- Extend .rels files via XML language services
-- Show .xml/.rels files with well-read code style
-- Basic feature to open OOXml package raw structure (zip)
-  + expandable tree view
-  + open files in code editor
-- Compatible with version 2024.3+ (JDK21)
 
 ## [1.2025.1+253.2] - 2025-11-04
 
