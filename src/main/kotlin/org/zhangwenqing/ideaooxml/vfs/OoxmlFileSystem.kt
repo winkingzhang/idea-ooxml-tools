@@ -71,13 +71,13 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
     override fun normalize(path: String): String {
         val separatorIndex = path.indexOf(SEPARATOR)
         return if (separatorIndex > 0)
-            FileUtil.normalize(path.substring(0, separatorIndex)) + path.substring(separatorIndex)
+            FileUtil.normalize(path.take(separatorIndex)) + path.substring(separatorIndex)
         else path
     }
 
     override fun extractRootPath(normalizedPath: String): String {
         val separatorIndex = normalizedPath.indexOf(SEPARATOR)
-        return if (separatorIndex > 0) normalizedPath.substring(0, separatorIndex + SEPARATOR.length) else ""
+        return if (separatorIndex > 0) normalizedPath.take(separatorIndex + SEPARATOR.length) else ""
     }
 
     override fun extractLocalPath(rootPath: String): String =
