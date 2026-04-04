@@ -2,6 +2,12 @@
 
 # idea-ooxml-tools Changelog
 
+### Changed
+
+- Update dependencies
+- Upgrade gradle to 9.4.1
+- Compatible to latest version 2026.1
+
 ## [Unreleased]
 
 ## [1.2025.1+253.3] - 2026-02-28
