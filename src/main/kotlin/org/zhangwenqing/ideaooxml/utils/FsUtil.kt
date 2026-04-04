@@ -24,7 +24,7 @@ import java.util.*
 
 object FsUtil {
 
-    const val NESTED_FILE_TEMP_FOLDER = "ooxmlTempFiles"
+    private const val NESTED_FILE_TEMP_FOLDER = "ooxmlTempFiles"
 
     /**
      * Temporary folder to store nested archive files
