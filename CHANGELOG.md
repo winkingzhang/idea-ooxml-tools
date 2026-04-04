@@ -2,13 +2,13 @@
 
 # idea-ooxml-tools Changelog
 
-### Changed
+## [Unreleased]
+
+## [1.2026.1+261.0] - 2026-04-04
 
 - Update dependencies
 - Upgrade gradle to 9.4.1
 - Compatible to latest version 2026.1
-
-## [Unreleased]
 
 ## [1.2025.1+253.3] - 2026-02-28
 
@@ -64,7 +64,8 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.3...HEAD
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+261.0...HEAD
+[1.2026.1+261.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.3...v1.2026.1+261.0
 [1.2025.1+253.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.2...v1.2025.1+253.3
 [1.2025.1+253.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.2...v1.2025.1+253.2
 [1.2025.1+252.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.1...v1.2025.1+252.2
