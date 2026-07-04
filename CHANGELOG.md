@@ -4,11 +4,20 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- Upgrade gradle to 9.5.0
+- Compatible to upcoming version 2026.2
+
+
 ## [1.2026.1+261.0] - 2026-04-04
 
+### Changed
 - Update dependencies
 - Upgrade gradle to 9.4.1
 - Compatible to latest version 2026.1
+
 
 ## [1.2025.1+253.3] - 2026-02-28
 
@@ -16,6 +25,7 @@
 
 - Update dependencies
 - Upgrade gradle to 9.3.1
+
 
 ## [1.2025.1+253.2] - 2025-11-04
 
@@ -27,12 +37,14 @@
 - fix: unresolved class for version 2025.3
 - fix: refactoring to avoid deprecated method usage
 
+
 ## [1.2025.1+252.2] - 2025-10-03
 
 ### Changed
 
 - Update dependencies
 - fix: improve path normalization and extraction methods
+
 
 ## [1.2025.1+252.1] - 2025-08-28
 
@@ -41,12 +53,14 @@
 - Update dependencies
 - Compatible to latest version 2025.2
 
+
 ## [1.2025.1+251.4] - 2025-06-11
 
 ### Changed
 
 - Remove the usage of deprecated API
 - Remove unused reference to poi and guava
+
 
 ## [1.2025.1+251.3] - 2025-05-06
 
