@@ -4,7 +4,17 @@
 
 ## [Unreleased]
 
+## [1.2026.1+262.0] - 2026-07-04
+
+### Changed
+
+- Update dependencies
+- Upgrade gradle to 9.5.0
+- Compatible to upcoming version 2026.2
+
 ## [1.2026.1+261.0] - 2026-04-04
+
+### Changed
 
 - Update dependencies
 - Upgrade gradle to 9.4.1
@@ -64,11 +74,12 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+261.0...HEAD
-[1.2026.1+261.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.3...v1.2026.1+261.0
-[1.2025.1+253.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.2...v1.2025.1+253.3
-[1.2025.1+253.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.2...v1.2025.1+253.2
-[1.2025.1+252.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+252.1...v1.2025.1+252.2
-[1.2025.1+252.1]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.4...v1.2025.1+252.1
-[1.2025.1+251.4]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+251.3...v1.2025.1+251.4
-[1.2025.1+251.3]: https://github.com/winkingzhang/idea-ooxml-tools/commits/v1.2025.1+251.3
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2026.1+262.0...HEAD
+[1.2026.1+262.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2026.1+261.0...1.2026.1+262.0
+[1.2026.1+261.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+253.3...1.2026.1+261.0
+[1.2025.1+253.3]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+253.2...1.2025.1+253.3
+[1.2025.1+253.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+252.2...1.2025.1+253.2
+[1.2025.1+252.2]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+252.1...1.2025.1+252.2
+[1.2025.1+252.1]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+251.4...1.2025.1+252.1
+[1.2025.1+251.4]: https://github.com/winkingzhang/idea-ooxml-tools/compare/1.2025.1+251.3...1.2025.1+251.4
+[1.2025.1+251.3]: https://github.com/winkingzhang/idea-ooxml-tools/commits/1.2025.1+251.3
