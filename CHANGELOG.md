@@ -6,6 +6,7 @@
 
 ### Changed
 
+- Improve code quality
 - Update dependencies
 - Upgrade gradle to 9.8.0
 - Compatible to upcoming version 2026.3
