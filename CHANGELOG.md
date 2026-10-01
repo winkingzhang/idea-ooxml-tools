@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update dependencies
+- Upgrade gradle to 9.8.0
+- Compatible to upcoming version 2026.3
+
 ## [1.2026.1+262.0] - 2026-07-04
 
 ### Changed
