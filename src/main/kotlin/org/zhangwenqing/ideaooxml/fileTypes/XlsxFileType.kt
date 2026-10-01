@@ -26,6 +26,7 @@ import javax.swing.Icon
 object XlsxFileType : FileType {
     override fun getName(): @NonNls String  = "XLSX"
 
+    //noinspection DialogTitleCapitalization
     override fun getDescription(): @NlsContexts.Label String = "Microsoft Excel Spreadsheet"
 
     @Suppress("UnstableApiUsage")

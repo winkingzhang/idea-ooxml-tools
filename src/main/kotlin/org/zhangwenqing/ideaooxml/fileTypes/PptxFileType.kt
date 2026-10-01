@@ -26,6 +26,7 @@ import javax.swing.Icon
 object PptxFileType : FileType {
     override fun getName(): @NonNls String  = "PPTX"
 
+    //noinspection DialogTitleCapitalization
     override fun getDescription(): @NlsContexts.Label String = "Microsoft PowerPoint Presentation"
 
     @Suppress("UnstableApiUsage")
