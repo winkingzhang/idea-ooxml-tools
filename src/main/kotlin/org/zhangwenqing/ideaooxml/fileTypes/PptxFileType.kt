@@ -29,7 +29,6 @@ object PptxFileType : FileType {
     //noinspection DialogTitleCapitalization
     override fun getDescription(): @NlsContexts.Label String = "Microsoft PowerPoint Presentation"
 
-    @Suppress("UnstableApiUsage")
     override fun getDefaultExtension(): @NlsSafe String = "pptx"
 
     override fun getIcon(): Icon = IconList.Pptx
