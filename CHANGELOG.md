@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [1.2026.1+263.1] - 2026-10-25
+
 ### Changed
 
 - Improve code quality by resolve deprecated API usage
@@ -89,7 +91,8 @@
   + open files in code editor
 - Compatible with version 2024.3+ (JDK21)
 
-[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+263.0...HEAD
+[Unreleased]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+263.1...HEAD
+[1.2026.1+263.1]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+263.0...v1.2026.1+263.1
 [1.2026.1+263.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+262.0...v1.2026.1+263.0
 [1.2026.1+262.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2026.1+261.0...v1.2026.1+262.0
 [1.2026.1+261.0]: https://github.com/winkingzhang/idea-ooxml-tools/compare/v1.2025.1+253.3...v1.2026.1+261.0
