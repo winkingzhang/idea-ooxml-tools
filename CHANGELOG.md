@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Improve code quality by resolve deprecated API usage
+- Update dependencies
+- Upgrade gradle to 9.8.1
+
 ## [1.2026.1+263.0] - 2026-10-01
 
 ### Changed
