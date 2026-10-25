@@ -23,7 +23,11 @@ import org.jetbrains.annotations.PropertyKey
 @NonNls
 private const val BUNDLE = "messages.StringBundle"
 
-object StringBundle : DynamicBundle(BUNDLE) {
+data class DummyStringBundle(
+    val message: String
+)
+
+object StringBundle : DynamicBundle(DummyStringBundle::class.java, BUNDLE) {
     @Suppress("SpreadOperator")
     @JvmStatic
     fun message(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any) =
