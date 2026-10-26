@@ -1,7 +1,7 @@
 [versions]
 # libraries
 junit = "4.13.2"
-poi-ooxml = "5.4.0"
+poi-ooxml = "6.0.0"
 guava = "33.7.2-jre"
 
 # plugins
