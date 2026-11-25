@@ -26,9 +26,9 @@ import javax.swing.Icon
 object DocxFileType : FileType {
     override fun getName(): @NonNls String  = "DOCX"
 
+    //noinspection DialogTitleCapitalization
     override fun getDescription(): @NlsContexts.Label String = "Microsoft Word Document"
 
-    @Suppress("UnstableApiUsage")
     override fun getDefaultExtension(): @NlsSafe String = "docx"
 
     override fun getIcon(): Icon = IconList.Docx

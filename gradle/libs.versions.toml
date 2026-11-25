@@ -1,16 +1,16 @@
 [versions]
 # libraries
 junit = "4.13.2"
-poi = "5.4.1"
-poi-ooxml = "5.4.1"
-poi-scratchpad = "5.4.1"
+poi = "6.0.0"
+poi-ooxml = "6.0.0"
+poi-scratchpad = "6.0.0"
 
 # plugins
 changelog = "2.5.0"
-intelliJPlatform = "2.18.1"
-kotlin = "2.4.10"
-kover = "0.9.9"
-qodana = "2026.2.0"
+intelliJPlatform = "2.20.1"
+kotlin = "2.4.21"
+kover = "0.9.11"
+qodana = "2026.3.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }

@@ -58,7 +58,7 @@ abstract class OoxmlFileSystem : ArchiveFileSystem(), VirtualFilePointerCapableF
 
         @JvmStatic
         fun isNestedFile(path: String): Boolean {
-            return if (StringUtils.countMatches(path, SEPARATOR) > 0) containExtension(path) else false
+            return StringUtils.countMatches(path, SEPARATOR) > 0 && containExtension(path)
         }
 
         @JvmStatic
